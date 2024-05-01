@@ -1,6 +1,8 @@
 <script>
-
-  import Md from './demo.md';
- 
+export let id="";
 </script>
-<Md></Md>
+
+<slot id="{id}">
+    
+
+</slot>

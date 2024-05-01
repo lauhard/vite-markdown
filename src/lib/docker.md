@@ -2,7 +2,13 @@
 author: lauhard
 ---
 
-# Docker cheatsheet
+<script>
+    import Test from './Test.svelte'
+</script>
+
+
+
+
 
 <!-- <!-- markdownlint-disable -->
 
@@ -18,8 +24,13 @@ author: lauhard
 - [8. docker stop container](#8-docker-stop-container)
 - [9. docker exec -it](#9-docker-exec--it)
 - [10. Tag images](#10-tag-images)
+- [fut](#fut)
+- [11. foooo](#11-foooo)
 
 <!-- /TOC -->
+
+<Test/>
+
 
 ## 1. start docker desktop
 
@@ -53,6 +64,7 @@ docker logs <id>
 ```
 
 ## 8. docker stop container
+
 ``` bash
 docker stop <id> -> sigterm gracefully shutdown (kill after 10 secs)
 docker kill <id> -> sigkill stops immediatly
@@ -68,9 +80,15 @@ execute additional command in a container
 
 ## 10. Tag images
 
-<div id="10-tag-images"></div>
 
 ``` bash
 [docker id]/[project]:latest
 docker build -t alauhard/redis:latest .
 ```
+
+
+## 11. fut 
+
+
+
+

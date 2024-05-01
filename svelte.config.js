@@ -3,6 +3,6 @@ import { mdsvex, escapeSvelte } from 'mdsvex'
 export default {
   // Consult https://svelte.dev/docs#compile-time-svelte-preprocess
   // for more information about preprocessors
-  preprocess: [vitePreprocess({extension: '.md'}), mdsvex({ extension: '.md' })],
-  extensions: ['.svelte', '.md'],
+  preprocess: [vitePreprocess(), mdsvex({ extension: '.md' })],
+  extensions: ['.svelte', '.md', '.svx'],
 }
