@@ -5,5 +5,5 @@ export default defineConfig({
   plugins: [
       svelte({}),
   ],
-  base: '/'
+  base: '/vite-markdown/'
 })
