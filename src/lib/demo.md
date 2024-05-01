@@ -36,19 +36,25 @@ docker ps
 docker ps --all
 
 ## 5. docker run
+<code>
 docker create  <name>
 docker start <id>
 docker start -a <id>
+</code>
 
 ## 6. docker delete containers
 docker system prune
 
 ## 7. docker logs - get record of container outputs
+``` bash
 docker logs <id>
+```
 
 ## 8. docker stop container
-docker stop < id> -> sigterm gracefully shutdown (kill after 10 secs)
-docker kill < id> -> sigkill stops immediatly
+```bash
+docker stop <id> -> sigterm gracefully shutdown (kill after 10 secs)
+docker kill <id> -> sigkill stops immediatly
+```
 
 ## 9. docker exec -it
 execute additional command in a container
