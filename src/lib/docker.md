@@ -68,7 +68,7 @@ execute additional command in a container
 
 ## 10. Tag images
 
-<div id="10-tag-images">>
+<div id="10-tag-images"></div>
 
 ``` bash
 [docker id]/[project]:latest
