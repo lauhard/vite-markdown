@@ -36,15 +36,15 @@ docker ps
 docker ps --all
 
 ## 5. docker run
-docker create  < name>
-docker start < id>
-docker start -a < id>
+docker create  <name>
+docker start <id>
+docker start -a <id>
 
 ## 6. docker delete containers
 docker system prune
 
 ## 7. docker logs - get record of container outputs
-docker logs < id>
+docker logs <id>
 
 ## 8. docker stop container
 docker stop < id> -> sigterm gracefully shutdown (kill after 10 secs)
@@ -58,4 +58,3 @@ execute additional command in a container
 ## 10. Tag images
 [docker id]/[project]:latest
 docker build -t alauhard/redis:latest .
-:grinning:
