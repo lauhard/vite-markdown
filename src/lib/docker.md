@@ -22,9 +22,11 @@ author: lauhard
 <!-- /TOC -->
 
 ## 1. start docker desktop
+
 systemctl --user start docker-desktop
 
 ## 2. add current user to docker group
+
 <code class="code-block" style="font-weight:bolder">
 sudo usermod -aG docker $user
 </code>
@@ -36,11 +38,11 @@ docker ps
 docker ps --all
 
 ## 5. docker run
-<code>
+``` bash
 docker create  <name>
 docker start <id>
 docker start -a <id>
-</code>
+```
 
 ## 6. docker delete containers
 docker system prune
@@ -51,16 +53,24 @@ docker logs <id>
 ```
 
 ## 8. docker stop container
-```bash
+``` bash
 docker stop <id> -> sigterm gracefully shutdown (kill after 10 secs)
 docker kill <id> -> sigkill stops immediatly
 ```
 
 ## 9. docker exec -it
+
 execute additional command in a container
+``` bash
 -i directs input in std in
 -t format stuff
+```
 
 ## 10. Tag images
+
+<div id="10-tag-images">>
+
+``` bash
 [docker id]/[project]:latest
 docker build -t alauhard/redis:latest .
+```
