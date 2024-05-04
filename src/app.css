@@ -1,6 +1,7 @@
-*,*::after,*::before {
+*,
+*::after,
+*::before {
   box-sizing: border-box;
-  
 }
 
 :root {
@@ -9,8 +10,12 @@
   /*
   font-weight: 400;
   */
-  --color:rgb(238, 238, 238);
+  --color: rgb(223, 223, 223);
   --background: #242424;
+  --code-box: #526264;
+  /* #f0821c */
+  --accent: #439CE6;
+  --accent2: #f0821c;
 
   color-scheme: light dark;
   color: var(--color);
@@ -22,7 +27,13 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
+html {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color);
+  background-color: var(--background);
+}
 
 body {
   margin: 0;
@@ -35,53 +46,61 @@ body {
    * calculate font-size based on the viewport width
    * 
    */
-  font-size: calc(1rem + 0.35vw);
-
 }
 
-code[class*=language-], code {
-  font-family: 'Fira Code', monospace;
-  background: var(--color) !important;
-  box-shadow: var(--color) !important;
-  color: var(--background) !important;
-  font-size: 1.1rem !important;
+code[class*="language-"],
+code {
+  font-family: "Fira Code", monospace;
+  background: var(--code-box) !important;
+  box-shadow: var(--code-box) !important;
+  font-size: 0.9rem !important;
 }
 
-pre[class*=language-] {
-  background: var(--color) !important;
-  border-radius: .5rem;
+pre[class*="language-"] {
+  padding-top: 2em !important;
+  background: var(--code-box) !important;
+  border-radius: 0.5rem;
+  border-bottom: 0.5rem solid var(--accent2);
 }
 
 a {
   font-weight: 500;
-  color: #f0821c;
+  color: var(--accent);
   text-decoration: inherit;
 }
 a:hover {
-  color: #d67112;
+  color: var(--accent2);
 }
 
-
-
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 700;
   margin: 0;
   padding: 0;
-  color: #f0821c;
+  color: var(--accent);
 }
 
-ul, li{
+ul,
+li {
   margin: 0;
   padding: 0;
   list-style: none;
-  
 }
 
-ul, li>a{
+ul,
+li > a {
   text-transform: capitalize;
+  line-height: 2rem;
+  font-weight: 500;
+  font-size: 1.1rem;
+  text-decoration: underline;
 }
 
-p{
+p {
   margin: 0;
   padding: 0;
 }
@@ -100,7 +119,6 @@ main {
   width: 100%;
   padding: 1em;
   max-width: 986px;
-
 }
 
 button {
@@ -122,15 +140,31 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+
+
 @media (prefers-color-scheme: light) {
   :root {
     --color: #213547;
     --background: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color: var(--accent2);
   }
   button {
     background-color: #f9f9f9;
+  }
+  code[class*="language-"],
+  code {
+    font-family: "Fira Code", monospace;
+    background: var(--color) !important;
+    box-shadow: var(--color) !important;
+    font-size: 0.9rem !important;
+  }
+
+  pre[class*="language-"] {
+    padding-top: 2em !important;
+    background: var(--color) !important;
+    border-radius: 0.5rem;
+    border-bottom: 0.5rem solid var(--accent2);
   }
 }
