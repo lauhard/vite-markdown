@@ -1,15 +1,6 @@
 ---
 author: lauhard
 ---
-
-<script>
-    import Test from './Test.svelte'
-</script>
-
-
-
-
-
 <!-- <!-- markdownlint-disable -->
 
 <!-- TOC tocDepth:2..3 chapterDepth:2..6 -->
@@ -28,24 +19,27 @@ author: lauhard
 
 <!-- /TOC -->
 
-<Test/>
 
 
 ## 1. start docker desktop
-
+``` bash
 systemctl --user start docker-desktop
+```
 
 ## 2. add current user to docker group
-
-<code class="code-block" style="font-weight:bolder">
+``` bash
 sudo usermod -aG docker $user
-</code>
+```
 
 ## 3. list running container
+``` bash
 docker ps
+```
 
 ## 4. list all started containers
+``` bash
 docker ps --all
+```
 
 ## 5. docker run
 ``` bash
@@ -55,7 +49,9 @@ docker start -a <id>
 ```
 
 ## 6. docker delete containers
+``` bash
 docker system prune
+```
 
 ## 7. docker logs - get record of container outputs
 ``` bash
@@ -70,7 +66,6 @@ docker kill <id> -> sigkill stops immediatly
 ```
 
 ## 9. docker exec -it
-
 execute additional command in a container
 ``` bash
 -i directs input in std in

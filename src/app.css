@@ -1,11 +1,20 @@
+*,*::after,*::before {
+  box-sizing: border-box;
+  
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
+  /*
   font-weight: 400;
+  */
+  --color:rgb(238, 238, 238);
+  --background: #242424;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--color);
+  background-color: var(--background);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,46 +22,85 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  min-width: 320px;
+  min-height: 100vh;
+  width: 100%;
+  /**
+   * calculate font-size based on the viewport width
+   * 
+   */
+  font-size: calc(1rem + 0.35vw);
+
+}
+
+code[class*=language-], code {
+  font-family: 'Fira Code', monospace;
+  background: var(--color) !important;
+  box-shadow: var(--color) !important;
+  color: var(--background) !important;
+  font-size: 1.1rem !important;
+}
+
+pre[class*=language-] {
+  background: var(--color) !important;
+  border-radius: .5rem;
+}
+
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #f0821c;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #d67112;
+}
+
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  color: #f0821c;
 }
 
 ul, li{
   margin: 0;
   padding: 0;
   list-style: none;
+  
 }
 
-a{
+ul, li>a{
   text-transform: capitalize;
 }
 
-body {
+p{
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-.card {
-  padding: 2em;
+  padding: 0;
 }
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  padding: 1em;
+  max-width: 986px;
+
 }
 
 button {
@@ -76,8 +124,8 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    --color: #213547;
+    --background: #ffffff;
   }
   a:hover {
     color: #747bff;
