@@ -82,26 +82,4 @@ execute additional command in a container
 docker build -t alauhard/redis:latest .
 ```
 
-``` js
-    console.log("hello "world");
-    var x = () => {
-        return {
-            a: "foo",
-            b: "zoo"
-        }
-    }
-```
-
-
-``` php
-    var_dump($test);
-    function blub($a, $b) {
-        return $a + $b;
-    }
-```
-
-
-``` bash
-    Console.WriteLine("c#");
-```
 

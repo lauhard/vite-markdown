@@ -17,6 +17,9 @@
   --accent: #439CE6;
   --accent2: #f0821c;
 
+  --content-width: 768px;
+  --side:1rem;
+
   color-scheme: light dark;
   color: var(--color);
   background-color: var(--background);
@@ -54,13 +57,44 @@ code {
   background: var(--code-box) !important;
   box-shadow: var(--code-box) !important;
   font-size: 0.9rem !important;
+  position: relative;
+
 }
 
 pre[class*="language-"] {
-  padding-top: 2em !important;
+  padding-top: 3.5em !important;
   background: var(--code-box) !important;
   border-radius: 0.5rem;
   border-bottom: 0.5rem solid var(--accent2);
+  position: relative !important;
+
+}
+
+.copy-button-wrapper{
+  position: relative;
+  width: 100%;
+  height: 0px;
+}
+.copy-button {
+  position: absolute;
+  bottom:-3.8rem;
+  z-index: 100;
+  right:0;
+  margin: .5rem;
+}
+
+.language-description{
+  position: absolute;
+  bottom: -3rem;
+  z-index: 100;
+  background: var(--background);
+  padding: 0.2rem .8rem;
+  display: flex;
+  left: .6rem;
+  line-height: 1.5rem;
+  border-radius: .3rem;
+  color:var(--accent2);
+  font-weight: bold;
 }
 
 a {
@@ -117,16 +151,15 @@ main {
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  padding: 1em;
-  max-width: 986px;
+  padding: var(--side);
+  max-width: var(--content-width);
 }
 
 button {
-  border-radius: 8px;
+  border-radius: 0.5rem;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  padding: 0.5em 1.1em;
   font-size: 1em;
-  font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
@@ -135,12 +168,17 @@ button {
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-
+@media screen and (max-width: 768px){
+  .show{
+    display: none;
+  }
+}
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -162,7 +200,6 @@ button:focus-visible {
   }
 
   pre[class*="language-"] {
-    padding-top: 2em !important;
     background: var(--color) !important;
     border-radius: 0.5rem;
     border-bottom: 0.5rem solid var(--accent2);
