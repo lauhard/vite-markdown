@@ -2,11 +2,10 @@
 author: lauhard
 ---
 <!-- <!-- markdownlint-disable -->
-## Useful Docker Command (for Linux) 
+## Useful Docker Commands
 
 <!-- TOC tocDepth:2..3 chapterDepth:2..6 -->
 
-- [Useful Docker Command (on Linux)](#useful-docker-command-on-linux)
 - [Start docker desktop on linux](#start-docker-desktop-on-linux)
 - [Add current user to docker group](#add-current-user-to-docker-group)
 - [List running containers](#list-running-containers)
@@ -23,7 +22,7 @@ author: lauhard
 <br>
 <br>
 <br>
-<br>
+
 
 ### Start docker desktop on linux 
 ``` bash
