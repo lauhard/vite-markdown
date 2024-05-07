@@ -1,35 +1,15 @@
-<script>
+<script lang="ts">
   import { onMount } from "svelte";
-  // @ts-nocheck
   import Header from "./lib/Header.svelte";
   // @ts-ignore
-  import MdFile from "./lib/docker.md";
-  //import './lib/helper.js';
+  import MdFile from "./lib/index.md";
+  import { copy2ClipBoard, getMetaInfo, smoothScroll2Anchor } from "./lib/utils";
 
-  const handleClick = (e) => {
-    let target = e.target;
-    if (target.tagName === "I") {
-      target = target.parentElement;
-    }
-    if (target.tagName === "BUTTON") {
-      target = target.parentElement;
-    }
-    let code =target.nextElementSibling.children[0].textContent;
-    console.info("copy-info:\n",code);
-    // copy the text to the clipboard
-    navigator.clipboard.writeText(code);
+  const handleClick = async (e) => {
+    await copy2ClipBoard(e);
   };
 
-  onMount(() => {
-    let heading = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
-    for (let i = 0; i < heading.length; i++) {
-      let id = heading[i].textContent
-        .toLowerCase()
-        .replace(/ /g, "-")
-        .replace(/[^\w-]+/g, "");
-      heading[i].setAttribute("id", id);
-    }
-    
+  const styleCodeBlock = () => {
     let codeBlocks = document.querySelectorAll("pre code");
     for (let i = 0; i < codeBlocks.length; i++) {
       //get the current code block
@@ -38,14 +18,12 @@
       //read the class name of the code block
       let language = codeblock.className;
 
-     
       //check if the classname contains language-
       if (language.includes("language-"))
         //get the language name
         language = language.replace("language-", "");
-      else
-        language = "text";
-   
+      else language = "text";
+
       //create an span element for displaying the language
       let languageElement = document.createElement("span");
       languageElement.className = "language-description";
@@ -72,26 +50,39 @@
 
       //insert the copy button wrapper before the code block
       let codeblockWrapper = codeblock.parentElement;
-      codeblockWrapper.parentNode.insertBefore(copyButtonWrapper,codeblockWrapper)
-
+      codeblockWrapper.parentNode.insertBefore(
+        copyButtonWrapper,
+        codeblockWrapper
+      );
     }
 
     const copyButtons = document.querySelectorAll(".copy-button");
     copyButtons.forEach((button) => {
       button.addEventListener("click", handleClick);
     });
+  };
 
-    if (window.innerWidth < 768) {
-      let codeBlocksMobile = document.querySelectorAll("code");
-      for (let i = 0; i < codeBlocksMobile.length; i++) {
-        codeBlocksMobile[i].addEventListener("touchstart", handleClick);
-      }
-    }
-    //touch event for mobile devices
+  let y = 0;
+  $:metadata = {} as Record<string, string>;
+
+  onMount(async() => {
+    const metaInfo = await getMetaInfo();
+    metadata = metaInfo[0].metadata;
+
+    styleCodeBlock();
+
+    smoothScroll2Anchor();
+
   });
+
 </script>
 
-<Header></Header>
+<!-- on scroll -->
+
+<svelte:window bind:scrollY={y} />
+
+<Header title={metadata.title}></Header>
+
 <main>
   <MdFile />
 </main>

@@ -10,12 +10,27 @@
   /*
   font-weight: 400;
   */
-  --color: rgb(223, 223, 223);
+  --color: #dfdfdf;
+  --color-light: #242424;
+
   --background: #242424;
-  --code-box: #526264;
+  --background-light: #f0fffb;
+
+  --code-box: #213547;
+  --code-box-light: #213547;
   /* #f0821c */
-  --accent: #439CE6;
-  --accent2: #f0821c;
+  --accent: #a8288d;
+  --accent-hover: #a8288d;
+
+  --accent-light: #a70584;
+  --accent-light-hover: #a70584;
+
+  --accent2: #1ebd88;
+  --accent2-hover: #1ebd88;
+
+  --accent2-light: #10ad79;
+  --accent2-light-hover: #10ad79;
+
 
   --content-width: 768px;
   --side:1rem;
@@ -58,7 +73,6 @@ code {
   box-shadow: var(--code-box) !important;
   font-size: 0.9rem !important;
   position: relative;
-
 }
 
 pre[class*="language-"] {
@@ -67,7 +81,6 @@ pre[class*="language-"] {
   border-radius: 0.5rem;
   border-bottom: 0.5rem solid var(--accent2);
   position: relative !important;
-
 }
 
 .copy-button-wrapper{
@@ -103,7 +116,7 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: var(--accent2);
+  color: var(--accent-hover);
 }
 
 h1,
@@ -140,6 +153,7 @@ p {
 }
 
 #app {
+  margin-top: 100px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -154,19 +168,27 @@ main {
   padding: var(--side);
   max-width: var(--content-width);
 }
-
+img {
+  width: 100%;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+  height: auto;
+  object-fit: cover;
+}
 button {
   border-radius: 0.5rem;
   border: 1px solid transparent;
   padding: 0.5em 1.1em;
   font-size: 1em;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--background);
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: var(--accent-hover);
+  color: var(--accent-hover);
+  transition: all 0.25s ease 0s ;
 }
 
 button:focus,
@@ -174,34 +196,36 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media screen and (max-width: 768px){
-  .show{
-    display: none;
-  }
-}
+
 
 @media (prefers-color-scheme: light) {
   :root {
-    --color: #213547;
-    --background: #ffffff;
+    --color: var(--color-light);
+    --background: var(--background-light);
+    --code-box: var(--code-box-light);
+
+    --accent: var(--accent-light);
+    --accent-hover: var(--accent-light-hover);
+
+    --accent2: var(--accent2-light);
+    --accent2-hover: var(--accent2-light-hover);
+  
   }
-  a:hover {
-    color: var(--accent2);
-  }
+  
   button {
-    background-color: #f9f9f9;
+    background-color: var(--background-light);
   }
   code[class*="language-"],
   code {
     font-family: "Fira Code", monospace;
-    background: var(--color) !important;
-    box-shadow: var(--color) !important;
+    background: var(--code-box-light) !important;
+    box-shadow: var(--code-box-light) !important;
     font-size: 0.9rem !important;
   }
 
   pre[class*="language-"] {
-    background: var(--color) !important;
+    background: var(--code-box-light) !important;
     border-radius: 0.5rem;
-    border-bottom: 0.5rem solid var(--accent2);
+    border-bottom: 0.5rem solid var(--accent2-light);
   }
 }
