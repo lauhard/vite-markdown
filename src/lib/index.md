@@ -4,6 +4,11 @@ title: Cheatsheet Template
 
 ---
 
+<script>
+    import image from './assets/image.png'
+    console.log(image)
+</script>
+
 <!-- <!-- markdownlint-disable -->
 ## Useful Commands For -- Something New --
 <br>
@@ -22,7 +27,7 @@ title: Cheatsheet Template
 
 Das ist ein Test für bilder  
 
-![alt text](/src/lib/image.png)
+![alt text]({image})
 
 ``` c#
 Console.ReadKey();

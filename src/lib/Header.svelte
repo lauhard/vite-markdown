@@ -2,15 +2,17 @@
   import { onMount } from "svelte";
   import { insertSVG } from "./utils";
   export let title="Cheatsheet";  
-  let fig;
+  import git from './assets/git.svg'
+  console.log("git",git)
+  let figure;
   onMount(async () => {
-    insertSVG(fig, '/src/assets/git.svg', '--accent');
+    insertSVG(figure, git, '--accent');
   });
 </script>
 
 <header>
   <nav>
-    <figure bind:this={fig}></figure>
+    <figure bind:this={figure}></figure>
     <h1 class="show"> {title}</h1>
   </nav>
 </header>
